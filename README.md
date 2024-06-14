@@ -1,6 +1,6 @@
 # Customer Churn for an E-Commerce company
 
-[Click here to access the Streamlit app](https://your-streamlit-app-url)
+[Click to Access the Streamlit App](https://ecommercecustomerchurn-jcdaayd4gbbatcnsnyussf.streamlit.app/)
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -128,7 +128,7 @@ The final model was chosen to be the XGBoost model as it gave the best performan
 - Users can input customer data and get real-time churn predictions.
 - Hosted the Streamlit app on Streamlit Community Cloud for easy access.
 
-[Click here to access the Streamlit app](https://your-streamlit-app-url)
+[Click here to access the Streamlit app](https://ecommercecustomerchurn-jcdaayd4gbbatcnsnyussf.streamlit.app/)
 
 
 ## Conclusion
