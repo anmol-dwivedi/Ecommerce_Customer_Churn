@@ -65,8 +65,8 @@ Conducted in-depth Exploratory Data Analysis to understand the data distribution
 - Feature Engineering (K-means cluster centers as a Feature)
 - Multicollinearity Check
 <div style="display: flex; justify-content: space-between;">
-    <img src="Plots/outliers after treatment.jpg" alt="Plot 2" style="width: 50%;"/>
-    <img src="Plots/Kmeans clustering WSS plot.png" alt="Plot 3" style="width: 50%;"/>
+    <img src="Plots/outliers after treatment.jpg" alt="Plot 2" style="width: 49%; display: inline-block;"/>
+    <img src="Plots/Kmeans clustering WSS plot.png" alt="Plot 3" style="width: 49%; display: inline-block;"/>
 </div>
 
 
