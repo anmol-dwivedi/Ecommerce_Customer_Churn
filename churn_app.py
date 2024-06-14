@@ -62,11 +62,11 @@ def preprocess_input(data):
     return modelling_data
 
 # Load the data
-data_dir = '/home/flame/Desktop/Projects/Churn Prediction/data/'
-x_train = pd.read_csv(os.path.join(data_dir, 'x_train.csv'))
-x_test = pd.read_csv(os.path.join(data_dir, 'x_test.csv'))
-y_train = pd.read_csv(os.path.join(data_dir, 'y_train.csv'))
-y_test = pd.read_csv(os.path.join(data_dir, 'y_test.csv'))
+# data_dir = '/home/flame/Desktop/Projects/Churn Prediction/data/'
+x_train = pd.read_csv('data/x_train.csv')
+x_test = pd.read_csv('data/x_test.csv')
+y_train = pd.read_csv('data/y_train.csv')
+y_test = pd.read_csv('data/y_test.csv')
 
 # Function to show the home page
 def show_home_page():
