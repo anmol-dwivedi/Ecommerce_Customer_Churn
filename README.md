@@ -17,79 +17,80 @@
 12. [Dependencies](#dependencies)
 13. [Contact](#contact)
 
-## Introduction
-This project focuses on predicting customer churn for a leading online e-commerce company. Customer churn, or customer attrition, occurs when customers stop doing business with a company. Retaining customers is critical, as it is significantly more cost-effective than acquiring new ones. By predicting which customers are likely to churn, the company can proactively offer promotions or other incentives to retain them, thus reducing churn rates and increasing overall profitability.
 
-## Project Motivation
-The objective of this project is to develop a binary classification model that can accurately predict whether a customer will churn in the near future. This model helps the company take pre-emptive measures to retain at-risk customers and improve customer loyalty.
+## Introduction
+This particular business problem is about customer Churn. The data set belongs to a leading online E-Commerce company. The company wants to know the customers who are going to churn, so accordingly they can approach customer to offer some promos and prevent the churn. The problem would require understanding the dataset and coming up with insights that can fulfil the business goal. To predict Customer Churn, we will have to come up with a Binary Classification model that is able to use the data at hand and predict whether a customer will churn in the coming future.
+
+
+## Project Motivation from a Business Prospective
+- Companies lose **$1.6 trillion per year** due to customer churn!
+-  It will **cost you 16 times** more to bring a new customer up to the same level as an existing customer.
+-  the Harvard Business School report claims that on average, a **5% increase in customer retention rates results in 25% – 95% increase of profits**. And the lion’s share – **65% of a company’s business comes from existing customers!**
+- According to Gartner, a staggering **80% of a company’s future revenue will come from just 20% of its existing customers**. Meanwhile, Marketing Metrics claims that the probability of selling to an existing customer is 60-70%, and only 5-20% to sell to a new prospect
+
 
 ## Data
-The dataset used in this project consists of customer information from the e-commerce company, with 5630 rows and 20 features, including customer demographics, transaction history, and other relevant metrics. The features available for this project are as follows:
+The dataset consists of 5600 data points and 20 features. The dataset for this project can be accessed here - [Data](data/E_Commerce_Dataset.xlsx).
+![Data Snapshot](Plots/data.png)
 
-|  |  |
-|----------|----------|
-| CustomerID | PreferredPaymentMode |
-| Churn | Gender |
-| Tenure | HourSpendOnApp |
-| PreferredLoginDevice | NumberOfDeviceRegistered |
-| CityTier | PreferedOrderCat |
-| WarehouseToHome | SatisfactionScore |
-| PreferredPaymentMode | MaritalStatus |
-| Gender | NumberOfAddress |
-| HourSpendOnApp | Complain |
-| NumberOfDeviceRegistered | OrderAmountHikeFromLastYear |
-| PreferedOrderCat | CouponUsed |
-| SatisfactionScore | OrderCount |
-| MaritalStatus | DaySinceLastOrder |
-| NumberOfAddress | CashbackAmount |
-| Complain | |
-| OrderAmountHikeFromLastYear | |
-| CouponUsed | |
-| OrderCount | |
-| DaySinceLastOrder | |
-| CashbackAmount | |
 
-</div>
 
 ## Exploratory Data Analysis (EDA)
-Conducted in-depth Exploratory Data Analysis to understand the data distribution, identify outliers, and determine feature correlations.
-Key insights include identifying features with high correlation and understanding customer behavior patterns related to churn. The key points of EDA were:
+Conducted in-depth Exploratory Data Analysis to understand the data distribution, identify outliers, and determine feature correlations.The key steps of EDA were:
 - Missing Value Check
 - Univariate Analysis - Boxplots, Histograms, Countplots
 - Bivariate Analysis - Boxplots, Violin Plots, Gender Distribution across Categorical Features, Churn Distribution across Categories, Scatter Plots
 - Multivariate Analysis - Pair Plots, Heatmaps
 - Data Skew, Data Kurtosis
+<div style="display: flex; justify-content: space-between;">
+    <div style="display: flex; flex-direction: column; width: 32%;">
+        <img src="Plots/Bivariate_snap.png" alt="Plot 1" style="width: 100%; margin-bottom: 10px;"/>
+        <img src="Plots/churn_across_payment.png" alt="Plot 2" style="width: 100%;"/>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 66%;">
+        <div style="display: flex; justify-content: space-between; width: 100%;">
+            <img src="Plots/ KDE_Pairplot.jpg" alt="Plot 3" style="width: 48%; margin-right: 10px;"/>
+            <img src="Plots/Data Skew Analysis.png" alt="Plot 4" style="width: 48%;"/>
+        </div>
+    </div>
+</div>
+
 
 ## Data Preprocessing
-Explain the data preprocessing steps undertaken, including:
 - Handling missing values
 - Variable Transformations
 - Encoding categorical variables
 - Outlier Treatment
 - Feature scaling
-- Feature Engineering
+- Feature Engineering (K-means cluster centers as a Feature)
 - Multicollinearity Check
+<div style="display: flex; justify-content: space-between;">
+    <img src="Plots/heatmap_Eda.jpg" alt="Plot 1" style="width: 32%;"/>
+    <img src="Plots/outliers after treatment.jpg" alt="Plot 2" style="width: 32%;"/>
+    <img src="Plots/Kmeans clustering WSS plot.png" alt="Plot 3" style="width: 32%;"/>
+</div>
+
 
 ## Modeling
 This was a Binary Classification model so a multitude of ML models were tried out to find the best model. The modeling workflow is as defined below:
-- Model Performance Evaluation Functions
-- Analyze Base Model's Performance
-- Hyperparameter Tuning for the base models
+- Analyze Base Models:
+    - **Linear Discriminant Analysis**
+    - **Logistic Regression**
+    - **ADA Boost Classifier**
+    - **Decision Tree Classifier**
+    - **Random Forest Classifier**
+    - **KNN Model**
+    - **Quadratic Discriminant Analysis**
+    - **XGBoost Model**
+    - **MLP Classifier**
+- Hyperparameter Tuning for the base models using **GridSearchCV**
 
-#### List of Modeling Techniques Used
-- Linear Discriminant Analysis
-- Logistic Regression
-- ADA Boost Classifier
-- Decision Tree Classifier
-- Random Forest Classifier
-- KNN Model
-- Quadratic Discriminant Analysis
-- XGBoost Model
-- MLP Classifier
+
 
 ## Evaluation
-- Evaluated model performance using metrics such as classification report, accuracy, precision, recall, F1-score, AUC score, and ROC curve.
-- Addressed overfitting through K-fold cross-validation, ensuring the model's generalizability to new data.
+- Evaluated model performance using metrics such as **classification report, accuracy, precision, recall, F1-score, AUC score, and ROC curve**.
+- Addressed overfitting through **K-fold cross-validation**, ensuring the model's generalizability to new data.
+
 
 ## Results
 The final model was chosen to be the XGBoost model as it gave the best performance.
@@ -99,6 +100,29 @@ The final model was chosen to be the XGBoost model as it gave the best performan
 - Model Calibration Plot
 - Model Learning Curve Plot
 - SHAP summary plot, Beeswarm Plot, Dependence Plot, Interaction Plot, Decision Plot
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <div style="width: 32%; margin-bottom: 20px;">
+        <img src="Plots/XGBoost Feature Importance by Cover.png" alt="Plot 1" style="width: 100%;"/>
+    </div>
+    <div style="width: 32%; margin-bottom: 20px;">
+        <img src="Plots/XGBoost Confusion Matrix.png" alt="Plot 2" style="width: 100%;"/>
+    </div>
+    <div style="width: 32%; margin-bottom: 20px;">
+        <img src="Plots/XGBoost ROC AUC Curve.png" alt="Plot 3" style="width: 100%;"/>
+    </div>
+    <div style="width: 32%;">
+        <img src="Plots/XGBoost Caliberation Plot.png" alt="Plot 4" style="width: 100%;"/>
+    </div>
+    <div style="width: 32%;">
+        <img src="Plots/XGB_dependence_plot.png" alt="Plot 5" style="width: 100%;"/>
+    </div>
+    <div style="width: 32%;">
+        <img src="Plots/shap_summary_beeswarm.png" alt="Plot 6" style="width: 100%;"/>
+    </div>
+</div>
+
+
+
 
 ## Deployment
 - Created an interactive web application using Streamlit.
@@ -106,6 +130,7 @@ The final model was chosen to be the XGBoost model as it gave the best performan
 - Hosted the Streamlit app on Streamlit Community Cloud for easy access.
 
 [Click here to access the Streamlit app](https://your-streamlit-app-url)
+
 
 ## Conclusion
 - **Tenure**: Most of the customers who churned had a tenure of about 15 months.
@@ -115,6 +140,7 @@ The final model was chosen to be the XGBoost model as it gave the best performan
 - **Complaints**: Customers who raised complaints churned, whereas those who didn't raise complaints tended not to churn.
 - **Preferred Login Device**: Customers whose preferred login device is a mobile churned in lesser amounts than those who prefer computers.
 
+
 ## Recommendations
 - **Enhance Customer Experience**: The company needs to focus on retaining both old and new customers by providing a superior overall customer experience. This includes better customer engagements, introducing new offers, and discounts.
 - **Expand Cashback Offers**: The company should introduce more cashback offers and in a wider variety. These can be direct monetary cashbacks or coupons for discounts on future purchases to incentivize continued customer engagement.
@@ -123,9 +149,11 @@ The final model was chosen to be the XGBoost model as it gave the best performan
 - **Strengthen Customer Service**: The company must engage customers through various mass media channels and ensure the customer service department operates smoothly. Excellent customer service is crucial for enhancing the customer experience.
 - **Uniform Service Quality**: The company needs to evaluate its performance across different cities and ensure consistent quality of service. Strategies should reflect the importance of all customers, regardless of location, to maintain loyalty and satisfaction.
 
+
 ## Dependencies
 The project dependencies are listed in the `requirements.txt` file. 
-You can find the `requirements.txt` file [here](https://github.com/your-username/your-repo-name/blob/main/requirements.txt).
+[Click Here to access the file](requirements.txt).
+
 
 ## Contact
 For questions, feedback, or collaboration, please reach out to:
