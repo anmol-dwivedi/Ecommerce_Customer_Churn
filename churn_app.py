@@ -11,7 +11,11 @@ import streamlit as st
 import shap
 import xgboost as xgb
 
-from churn_app_functions import model_performance, roc_score_auc_curve, k_fold_cross_valscore, plot_shap_summary, plot_partial_dependence, plot_calibration_curve, plot_learning_curve
+from churn_app_functions import model_performance, roc_score_auc_curve, plot_calibration_curve, plot_learning_curve
+
+# Configure the page to use the full width
+st.set_page_config(page_title="Image Display", layout="wide")
+
 
 # Load the Models
 def load_model(path):
@@ -190,29 +194,48 @@ def show_home_page():
 # Function to show the model information page
 def show_model_info():
     st.title("Model Information")
+
     
     st.write("### Model Performance")
     model_performance(final_model, x_train, y_train, x_test, y_test)
+
 
     st.write("")  # Add a line space
     st.write("### ROC AUC Curve")
     roc_score_auc_curve(final_model, x_train, y_train, x_test, y_test)
 
+
     st.write("")  # Add a line space
     st.write("### K-Fold Cross Validation Scores")
-    k_fold_cross_valscore(final_model, x_train, y_train, folds=10)
+    st.markdown('#### The mean recall for the model after 10 folds cross-validation is 0.8607')
+    st.markdown('#### The mean accuracy for the model after 10 folds cross-validation is 0.9602')
+    st.markdown('#### The mean precision for the model after 10 folds cross-validation is 0.9037')
+    st.markdown('#### The mean f1 for the model after 10 folds cross-validation is 0.8796')
+    # k_fold_cross_valscore(final_model, x_train, y_train, folds=10)
+
 
     st.write("")  # Add a line space
     st.write("### SHAP Summary Plots")
-    plot_shap_summary(final_model, x_test)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("Plots/shap_summary_plot.png", caption="SHAP Summary Bar", use_column_width=True)
+    with col2:    
+        st.image("Plots/shap_summary_beeswarm.png", caption="SHAP Beeswarm Plot", use_column_width=True)
+    
+    
 
     st.write("")  # Add a line space
     st.write("### Partial Dependence Plots")
-    plot_partial_dependence(final_model, x_test)
+    # plot_partial_dependence(final_model, x_test)
+    st.image("Plots/XGB_dependence_plot.png", caption="XGBoost Partial Dependence Plot", use_column_width=True)
+    
 
     st.write("")  # Add a line space
     st.write("### Calibration Curve")
     plot_calibration_curve(final_model, x_test, y_test)
+    
+    
+    
 
     st.write("")  # Add a line space
     st.write("### Learning Curve")
