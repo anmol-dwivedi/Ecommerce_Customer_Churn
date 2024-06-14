@@ -50,7 +50,7 @@ Conducted in-depth Exploratory Data Analysis to understand the data distribution
     <div style="display: flex; flex-direction: column; width: 66%;">
         <div style="display: flex; justify-content: space-between; width: 100%;">
             <img src="Plots/ KDE_Pairplot.jpg" alt="Plot 3" style="width: 48%; margin-right: 10px;"/>
-            <img src="Plots/Data Skew Analysis.png" alt="Plot 4" style="width: 48%;"/>
+            <img src="Plots/heatmap_Eda.jpg" alt="Plot 4" style="width: 48%;"/>
         </div>
     </div>
 </div>
@@ -65,7 +65,7 @@ Conducted in-depth Exploratory Data Analysis to understand the data distribution
 - Feature Engineering (K-means cluster centers as a Feature)
 - Multicollinearity Check
 <div style="display: flex; justify-content: space-between;">
-    <img src="Plots/heatmap_Eda.jpg" alt="Plot 1" style="width: 32%;"/>
+    <img src="Plots/Data Skew Analysis.png" alt="Plot 1" style="width: 32%;"/>
     <img src="Plots/outliers after treatment.jpg" alt="Plot 2" style="width: 32%;"/>
     <img src="Plots/Kmeans clustering WSS plot.png" alt="Plot 3" style="width: 32%;"/>
 </div>
